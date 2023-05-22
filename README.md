@@ -12,9 +12,8 @@
 ### 1. Clone this project to your local machine.
 #### Note : the location of this repository will be downloaded on the folder that you are currently on, so you should put it in the place where you can run import the package easily.
 ```bash
-git clone https://github.com/OuiSinthala/LaoODetection.git
+git clone https://github.com/OuiSinthala/LaoODetection_person_detection.git
 ```
-
 ### 2. Create a new virtual environment to avoid package conflict
 ##### macos or linux:
 ```bash
