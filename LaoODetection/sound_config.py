@@ -45,7 +45,7 @@ def run_with_key_control(default_function, function_mappings):
     def key_press(event):
         nonlocal current_function
 
-        if event.name == "space":
+        if event.name == "a":
             current_function = default_function
         elif event.name in function_mappings:
             current_function = function_mappings[event.name]
@@ -60,5 +60,5 @@ def run_with_key_control(default_function, function_mappings):
     while True:
         current_function()
 
-def sound_config():
+def sound_config_func():
     run_with_key_control(default_sound, function_mappings)

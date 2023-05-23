@@ -2,7 +2,7 @@
 import math
 from ultralytics import YOLO
 import cvzone
-from LaoODetection.sound_config import sound_config
+from LaoODetection.sound_config import sound_config_func
 
 # Modules inside this package
 from LaoODetection.ObjectNames import object_names
@@ -55,7 +55,7 @@ class ObjectDetector:
                 # If this is a new object, add it to the list of total detected objects
                 if object_id not in total_detected_object:
                     total_detected_object.append(object_id)
-                    sound_config()
+                    sound_config_func()
 
                 # If the object is within the frame, add its ID to the list of active object IDs
                 if 0 <= center_x <= captured_frame.shape[1] and 0 <= center_y <= captured_frame.shape[0]:
