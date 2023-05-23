@@ -2,7 +2,7 @@ import keyboard
 import pygame
 
 def default_sound():
-    mp3_file = "LaoODetection_person_detection\LaoODetection\sounds\game_sound.mp3"
+    mp3_file = "LaoODetection/sounds/game_sound.mp3"
     pygame.mixer.init()
     pygame.mixer.music.load(mp3_file)
     pygame.mixer.music.play()
@@ -12,7 +12,7 @@ def default_sound():
     pygame.mixer.music.stop()
 
 def play_sound1():
-    mp3_file = "LaoODetection_person_detection\LaoODetection\sounds\hello2.mp3"
+    mp3_file = "LaoODetection/sounds/hello2.mp3"
     pygame.mixer.init()
     pygame.mixer.music.load(mp3_file)
     pygame.mixer.music.play()
@@ -23,7 +23,7 @@ def play_sound1():
 
 
 def play_sound2():
-    mp3_file = "LaoODetection_person_detection\LaoODetection\sounds\hello3.mp3"
+    mp3_file = "LaoODetection/sounds/hello3.mp3"
     pygame.mixer.init()
     pygame.mixer.music.load(mp3_file)
     pygame.mixer.music.play()
@@ -33,8 +33,8 @@ def play_sound2():
     pygame.mixer.music.stop()
 
 function_mappings = {
-    "1": play_sound1,
-    "2": play_sound2,
+    "2": play_sound1,
+    "3": play_sound2,
 }
 
 def run_with_key_control(default_function, function_mappings):
@@ -45,7 +45,7 @@ def run_with_key_control(default_function, function_mappings):
     def key_press(event):
         nonlocal current_function
 
-        if event.name == "a":
+        if event.name == "1":
             current_function = default_function
         elif event.name in function_mappings:
             current_function = function_mappings[event.name]

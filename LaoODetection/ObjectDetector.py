@@ -55,8 +55,12 @@ class ObjectDetector:
                 # If this is a new object, add it to the list of total detected objects
                 if object_id not in total_detected_object:
                     total_detected_object.append(object_id)
-                    sound_config_func()
-
+                    print("HELLOOOOOOOOOOO")
+                    try:
+                        sound_config_func()
+                    except:
+                        print("Cannot find the audio file")
+                    
                 # If the object is within the frame, add its ID to the list of active object IDs
                 if 0 <= center_x <= captured_frame.shape[1] and 0 <= center_y <= captured_frame.shape[0]:
                     active_object_ids.append(object_id)
