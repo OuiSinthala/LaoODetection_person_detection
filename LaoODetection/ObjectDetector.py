@@ -2,9 +2,10 @@
 import math
 from ultralytics import YOLO
 import cvzone
-from LaoODetection.sound_config import sound_config_func
+import threading
 
 # Modules inside this package
+from LaoODetection.sound_config import play_sound
 from LaoODetection.ObjectNames import object_names
 from LaoODetection.ObjectTracker import TrackerDetection
 from LaoODetection.data_manipulation import *
@@ -55,11 +56,11 @@ class ObjectDetector:
                 # If this is a new object, add it to the list of total detected objects
                 if object_id not in total_detected_object:
                     total_detected_object.append(object_id)
-                    print("HELLOOOOOOOOOOO")
-                    try:
-                        sound_config_func()
-                    except:
-                        print("Cannot find the audio file")
+                    print("Hello") 
+                    # Threading
+                    sound_thread = threading.Thread(target=play_sound)
+                    sound_thread.start()
+
                     
                 # If the object is within the frame, add its ID to the list of active object IDs
                 if 0 <= center_x <= captured_frame.shape[1] and 0 <= center_y <= captured_frame.shape[0]:
@@ -86,12 +87,6 @@ class ObjectDetector:
             # Quit if the user presses 'q'
             if key == ord('q'):
                 break
-            # Pause if the user presses 'space'
-            elif key == ord(' '):
-                while True:
-                    key = cv.waitKey(1)
-                    if key == ord(' '):
-                        break
 
         # Release resources
         video_capture.release()
